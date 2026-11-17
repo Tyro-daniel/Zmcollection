@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Bag | ZM Collective</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="bag.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="site-chrome.js" defer></script>
+</head>
+<body>
+
+<!-- ================= HEADER (identical on every page) ================= -->
+<header class="site-header">
+
+  <div class="main-bar">
+    <a href="index.html" class="logo">
+      <span class="brand-logo-monogram">ZM</span>
+      <span class="brand-logo-name">ZM COLLECTIVE</span>
+      <span class="brand-logo-tagline">style in motion</span>
+    </a>
+
+    <nav class="icon-nav" id="mainNav">
+      <a href="index.html" class="icon-nav-item">
+        <img src="shoe-shop.PNG" alt="Home" class="nav-icon-img">
+        <span>Home</span>
+      </a>
+      <a href="contact.html" class="icon-nav-item">
+        <img src="customer-service.PNG" alt="Contact" class="nav-icon-img">
+        <span>Contact</span>
+      </a>
+      <a href="about.html" class="icon-nav-item">
+        <img src="info.PNG" alt="About Us" class="nav-icon-img">
+        <span>About Us</span>
+      </a>
+    </nav>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="search-row">
+    <div class="search-segmented">
+      <div class="search-field">
+        <span class="field-label">What</span>
+        <span class="field-value">Search products</span>
+      </div>
+      <span class="field-divider"></span>
+      <div class="search-field">
+        <span class="field-label">Category</span>
+        <span class="field-value">Choose category</span>
+      </div>
+      <span class="field-divider"></span>
+      <div class="search-field">
+        <span class="field-label">Size</span>
+        <span class="field-value">Add size</span>
+      </div>
+      <button class="search-submit" id="searchSubmitBtn" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="2.4">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="shop-nav" id="shopNav">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">&times;</button>
+    <a href="new.html">New</a>
+    <a href="footwear.html">Footwear</a>
+    <a href="men.html">Men</a>
+    <a href="women.html">Women</a>
+    <a href="sneakers.html">Sneakers</a>
+    <a href="accessories.html">Accessories</a>
+    <a href="suits.html">Suits</a>
+  </nav>
+
+  <div class="nav-overlay" id="navOverlay"></div>
+
+</header>
+
+
+<!-- ================= YOUR BAG ================= -->
+<main class="bag-page">
+
+  <h1 class="bag-page-title">Your Bag</h1>
+
+  <div class="bag-layout">
+
+    <!-- Cart items -->
+    <div class="bag-items" id="bagItems">
+      <!-- populated by JS -->
+    </div>
+
+    <!-- Order summary -->
+    <aside class="bag-summary">
+      <h2>Order Summary</h2>
+
+      <div class="bag-summary-line">
+        <span>Total Product Cost</span>
+        <span id="bagSubtotal">P0.00</span>
+      </div>
+      <div class="bag-summary-line">
+        <span>Delivery</span>
+        <span id="bagDelivery">P0.00</span>
+      </div>
+      <div class="bag-summary-line bag-summary-total">
+        <span>Total</span>
+        <span id="bagTotal">P0.00</span>
+      </div>
+
+      <button class="bag-checkout-btn" id="bagCheckoutBtn">Place Order</button>
+      <a href="index.html" class="bag-continue-link">Continue Shopping</a>
+    </aside>
+
+  </div>
+
+  <!-- Shown instead of the layout above once the bag is empty -->
+  <div class="bag-empty" id="bagEmpty" style="display:none;">
+    <p>Your bag is empty.</p>
+    <a href="index.html" class="fh-btn">Start Shopping</a>
+  </div>
+
+</main>
+
+
+<!-- ================= FOOTER (identical on every page) ================= -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-about">
+            <h2>ZMCOLLECTIVE</h2>
+            <p>
+                Step into comfort and style with our premium collection of sneakers,
+                running shoes, and casual footwear designed for every lifestyle.
+            </p>
+            <div class="socials">
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <button onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                BACK TO TOP ↑
+            </button>
+        </div>
+
+        <div class="footer-links">
+            <h3>Shop</h3>
+            <a href="men.html">Men</a>
+            <a href="women.html">Women</a>
+            <a href="kids.html">Kids</a>
+            <a href="new.html">New Arrivals</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Support</h3>
+            <a href="contact.html">Contact Us</a>
+            <a href="#">FAQs</a>
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Legal</h3>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Refund Policy</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 ZMCOLLECTIVE. All Rights Reserved.</p>
+    </div>
+
+</footer>
+
+<!-- script.js defines zmGetCart / zmUpdateQty / zmRemoveFromCart /
+     zmCartTotals / zmClearCart — must load before this page's script -->
+<script src="script.js"></script>
+<script src="scripts.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  const WHATSAPP_NUMBER = '26776306858'; // <-- replace with your real business number (country code + number, no + or spaces)
+
+  const bagItemsEl = document.getElementById('bagItems');
+  const bagLayoutEls = document.querySelectorAll('.bag-items, .bag-summary');
+  const bagEmptyEl = document.getElementById('bagEmpty');
+
+  function renderBag() {
+    const cart = zmGetCart();
+
+    if (cart.length === 0) {
+      bagLayoutEls.forEach(el => el.style.display = 'none');
+      bagEmptyEl.style.display = 'block';
+      return;
+    }
+
+    bagLayoutEls.forEach(el => el.style.display = '');
+    bagEmptyEl.style.display = 'none';
+
+    bagItemsEl.innerHTML = '';
+
+    cart.forEach((item, index) => {
+      const lineTotal = (item.price * item.qty).toFixed(2);
+
+      bagItemsEl.innerHTML += `
+        <div class="bag-item">
+          <div class="bag-item-image">
+            <img src="${item.img}" alt="${item.title}">
+          </div>
+          <div class="bag-item-info">
+            <h3>${item.title}</h3>
+            <p class="bag-item-size">Size: ${item.size}</p>
+            <p class="bag-item-price">P${item.price.toFixed(2)}</p>
+
+            <div class="bag-item-qty">
+              <button class="qty-btn qty-minus" data-index="${index}" aria-label="Decrease quantity">&minus;</button>
+              <span class="qty-value">${item.qty}</span>
+              <button class="qty-btn qty-plus" data-index="${index}" aria-label="Increase quantity">&plus;</button>
+            </div>
+          </div>
+          <div class="bag-item-side">
+            <p class="bag-item-line-total">P${lineTotal}</p>
+            <button class="bag-item-remove" data-index="${index}">Remove</button>
+          </div>
+        </div>`;
+    });
+
+    const totals = zmCartTotals(cart);
+    document.getElementById('bagSubtotal').textContent = 'P' + totals.subtotal.toFixed(2);
+    document.getElementById('bagDelivery').textContent = 'P' + totals.delivery.toFixed(2);
+    document.getElementById('bagTotal').textContent = 'P' + totals.total.toFixed(2);
+
+    // Wire up qty +/- and remove buttons for the rows just rendered
+    document.querySelectorAll('.qty-minus').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const i = parseInt(btn.dataset.index, 10);
+        const current = zmGetCart()[i];
+        zmUpdateQty(i, current.qty - 1 <= 0 ? 1 : current.qty - 1);
+        renderBag();
+      });
+    });
+
+    document.querySelectorAll('.qty-plus').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const i = parseInt(btn.dataset.index, 10);
+        const current = zmGetCart()[i];
+        zmUpdateQty(i, current.qty + 1);
+        renderBag();
+      });
+    });
+
+    document.querySelectorAll('.bag-item-remove').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const i = parseInt(btn.dataset.index, 10);
+        zmRemoveFromCart(i);
+        renderBag();
+      });
+    });
+  }
+
+  renderBag();
+
+  // ============================================================
+  // PLACE ORDER
+  // No backend/payment gateway exists — instead this builds an
+  // order summary and opens WhatsApp with your business number,
+  // message pre-filled with the cart contents. The customer just
+  // hits send. Cart is cleared once WhatsApp opens.
+  // ============================================================
+  document.getElementById('bagCheckoutBtn').addEventListener('click', () => {
+    const cart = zmGetCart();
+    if (cart.length === 0) return;
+
+    const totals = zmCartTotals(cart);
+
+    let message = 'Hi! I\'d like to place an order:\n\n';
+
+    cart.forEach(item => {
+      const lineTotal = (item.price * item.qty).toFixed(2);
+      message += `• ${item.title} (Size: ${item.size}, Qty: ${item.qty}) — P${lineTotal}\n`;
+    });
+
+    message += `\nSubtotal: P${totals.subtotal.toFixed(2)}`;
+    message += `\nDelivery: P${totals.delivery.toFixed(2)}`;
+    message += `\nTotal: P${totals.total.toFixed(2)}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, '_blank');
+
+    zmClearCart();
+    window.location.href = 'index.html';
+  });
+
+});
+</script>
+
+</body>
+</html>

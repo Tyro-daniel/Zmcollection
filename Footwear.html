@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Footwear | ZM Collective</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="men.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+<script src="site-chrome.js" defer></script>
+</head>
+<body>
+
+<!-- ================= HEADER (identical on every page) ================= -->
+<header class="site-header">
+
+  <!-- Top row: logo / icon nav / hamburger -->
+  <div class="main-bar">
+
+    <a href="index.html" class="logo">
+      <span class="brand-logo-monogram">ZM</span>
+      <span class="brand-logo-name">ZM COLLECTIVE</span>
+      <span class="brand-logo-tagline">style in motion</span>
+    </a>
+
+    <nav class="icon-nav" id="mainNav">
+      <a href="index.html" class="icon-nav-item">
+        <img src="shoe-shop.PNG" alt="Home" class="nav-icon-img">
+        <span>Home</span>
+      </a>
+
+      <a href="contact.html" class="icon-nav-item">
+        <img src="customer-service.PNG" alt="Contact" class="nav-icon-img">
+        <span>Contact</span>
+      </a>
+
+      <a href="about.html" class="icon-nav-item">
+        <img src="info.PNG" alt="About Us" class="nav-icon-img">
+        <span>About Us</span>
+      </a>
+    </nav>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Segmented search bar -->
+  <div class="search-row">
+    <div class="search-segmented">
+
+      <div class="search-field">
+        <span class="field-label">What</span>
+        <span class="field-value">Search products</span>
+      </div>
+
+      <span class="field-divider"></span>
+
+      <div class="search-field">
+        <span class="field-label">Category</span>
+        <span class="field-value">Choose category</span>
+      </div>
+
+      <span class="field-divider"></span>
+
+      <div class="search-field">
+        <span class="field-label">Size</span>
+        <span class="field-value">Add size</span>
+      </div>
+
+      <button class="search-submit" id="searchSubmitBtn" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="2.4">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Shop category sidebar (opens via hamburger) -->
+  <nav class="shop-nav" id="shopNav">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">&times;</button>
+    <a href="new.html">New</a>
+    <a href="footwear.html">Footwear</a>
+    <a href="men.html">Men</a>
+    <a href="women.html">Women</a>
+    <a href="accessories.html">Accessories</a>
+  </nav>
+
+  <div class="nav-overlay" id="navOverlay"></div>
+
+</header>
+
+
+<!-- ================= PRODUCT LISTING PAGE: FOOTWEAR ================= -->
+<section class="plp">
+
+  <div class="plp-header">
+    <h1>Footwear</h1>
+    <div class="plp-controls">
+      <button class="plp-control-btn" type="button" data-filter-toggle aria-expanded="true">
+        <span data-filter-label>Hide Filters</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
+          <line x1="4" y1="7" x2="20" y2="7"/>
+          <circle cx="9" cy="7" r="2" fill="white"/>
+          <line x1="4" y1="17" x2="20" y2="17"/>
+          <circle cx="16" cy="17" r="2" fill="white"/>
+        </svg>
+      </button>
+      <label class="plp-sort-control">
+        <span>Sort by</span>
+        <select class="plp-sort" id="productSort" aria-label="Sort products">
+          <option value="featured">Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="name">Name</option>
+        </select>
+      </label>
+    </div>
+  </div>
+
+  <div class="plp-layout">
+
+    <!-- Sidebar -->
+    <aside class="plp-sidebar">
+
+      <ul class="plp-category-list">
+        <li><a href="#">Sandals, Slides &amp; Flip Flops</a></li>
+        <li><a href="#">Lifestyle</a></li>
+        <li><a href="#">Running</a></li>
+        <li><a href="#">Basketball</a></li>
+        <li><a href="#">Training &amp; Gym</a></li>
+        <li><a href="#">Skateboarding</a></li>
+        <li><a href="#">Walking</a></li>
+        <li><a href="#">Streetwear</a></li>
+      </ul>
+
+      <details class="plp-filter" open>
+        <summary>Gender</summary>
+        <div class="plp-filter-body">
+          <label><input type="checkbox"> Men</label>
+          <label><input type="checkbox"> Women</label>
+          <label><input type="checkbox"> Unisex</label>
+        </div>
+      </details>
+
+      <details class="plp-filter">
+        <summary>Shop By Price</summary>
+        <div class="plp-filter-body">
+          <label><input type="checkbox"> Under P500</label>
+          <label><input type="checkbox"> P500 &ndash; P1000</label>
+          <label><input type="checkbox"> Over P1000</label>
+        </div>
+      </details>
+
+      <details class="plp-filter">
+        <summary>Sale &amp; Offers</summary>
+        <div class="plp-filter-body">
+          <label><input type="checkbox"> Sale</label>
+          <label><input type="checkbox"> New Markdowns</label>
+        </div>
+      </details>
+
+    </aside>
+
+    <!-- Product grid: FOOTWEAR ONLY -->
+    <!-- Product grid: FOOTWEAR ONLY -->
+    <div class="plp-grid">
+
+      <a href="Menshirt.html?product=casualslides" class="plp-card">
+        <div class="plp-card-image">
+          <img src="whiteairforce1.webp" alt="White Air Force 1">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Air Force 1</h3>
+        <p class="plp-sub">Lifestyle</p>
+        <p class="plp-price">P349.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Menshirt.html?product=classictrainers" class="plp-card">
+        <div class="plp-card-image">
+          <img src="pinkairforce1.avif" alt="Pink Air Force 1">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Air Force 1</h3>
+        <p class="plp-sub">Lifestyle</p>
+        <p class="plp-price">P649.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Menshoe.html?product=retrohightops" class="plp-card">
+        <div class="plp-card-image">
+          <img src="blackcampusshoe.avif" alt="Black Campus Shoe">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Campus Shoe</h3>
+        <p class="plp-sub">Skateboarding</p>
+        <p class="plp-price">P1099.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Menshoe.html?product=bloodline runner" class="plp-card">
+        <div class="plp-card-image">
+          <img src="predator.jpg" alt="Predator">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Predator</h3>
+        <p class="plp-sub">Running</p>
+        <p class="plp-price">P949.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Menshoe.html?product=court legacy" class="plp-card">
+        <div class="plp-card-image">
+          <img src="pinkadidascampus.avif" alt="Pink Adidas Campus">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Adidas Campus</h3>
+        <p class="plp-sub">Skateboarding</p>
+        <p class="plp-price">P749.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Manblazer.html?product=trail-trainer" class="plp-card">
+        <div class="plp-card-image">
+          <img src="NikeAirmaxblackredmetalicunisexsneakers.webp" alt="Nike Air Max Black Red Metallic Unisex Sneakers">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Nike Air Max Black Red Metallic Unisex Sneakers</h3>
+        <p class="plp-sub">Running</p>
+        <p class="plp-price">P879.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Manblazer.html?product=blackout-low" class="plp-card">
+        <div class="plp-card-image">
+          <img src="Nikeairmax1wolfgreywhite-black.webp" alt="Nike Air Max 1 Wolf Grey White Black">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Nike Air Max 1 Wolf Grey White Black</h3>
+        <p class="plp-sub">Streetwear</p>
+        <p class="plp-price">P599.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Mangolf.html?product=shox-deliver" class="plp-card">
+        <div class="plp-card-image">
+          <img src="sandals.webp" alt="Sandals">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Sandals</h3>
+        <p class="plp-sub">Sandals, Slides &amp; Flip Flops</p>
+        <p class="plp-price">P829.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Mangolf.html?product=shoe-deliver" class="plp-card">
+        <div class="plp-card-image">
+          <img src="sandal.webp" alt="Sandal">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Sandal</h3>
+        <p class="plp-sub">Sandals, Slides &amp; Flip Flops</p>
+        <p class="plp-price">P829.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Mangolf.html?product=sho-deliver" class="plp-card">
+        <div class="plp-card-image">
+          <img src="heels.webp" alt="Heels">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Heels</h3>
+        <p class="plp-sub">Women's Shoes</p>
+        <p class="plp-price">P829.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Manformal.html?product=black-deliver" class="plp-card">
+        <div class="plp-card-image">
+          <img src="blockheelssandals.webp" alt="Block Heel Sandals">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Block Heel Sandals</h3>
+        <p class="plp-sub">Sandals, Slides &amp; Flip Flops</p>
+        <p class="plp-price">P829.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Manformal.html?product=brown-deliver" class="plp-card">
+        <div class="plp-card-image">
+          <img src="s.jpg" alt="Brown Loafer">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Brown Loafer</h3>
+        <p class="plp-sub">Formal</p>
+        <p class="plp-price">P829.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Manformal.html?product=white-deliver" class="plp-card">
+        <div class="plp-card-image">
+          <img src="sho.jpg" alt="White Sneaker">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Formal</h3>
+        <p class="plp-sub">Lifestyle</p>
+        <p class="plp-price">P829.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Manformal.html?product=white-deliver" class="plp-card">
+        <div class="plp-card-image">
+          <img src="jordanairjordan4retro.avif" alt="Air Jordan 4 Retro">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Air Jordan 4 Retro</h3>
+        <p class="plp-sub">Basketball</p>
+        <p class="plp-price">P829.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Manformal.html?product=white-deliver" class="plp-card">
+        <div class="plp-card-image">
+          <img src="pinkjordan4retroorchiod.jpg" alt="Pink Jordan 4 Retro Orchid">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Jordan 4 Retro Orchid</h3>
+        <p class="plp-sub">Basketball</p>
+        <p class="plp-price">P829.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Manformal.html?product=white-deliver" class="plp-card">
+        <div class="plp-card-image">
+          <img src="brockoxfordmen'sshoes.webp" alt="Brock Oxford Men's Shoes">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Brock Oxford Men's Shoes</h3>
+        <p class="plp-sub">Formal</p>
+        <p class="plp-price">P829.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Manformal.html?product=white-deliver" class="plp-card">
+        <div class="plp-card-image">
+          <img src="mokkersmoccasins.webp" alt="Mokkers Moccasins">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Mokkers Moccasins</h3>
+        <p class="plp-sub">Formal</p>
+        <p class="plp-price">P829.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+      <a href="Manformal.html?product=white-deliver" class="plp-card">
+        <div class="plp-card-image">
+          <img src="formal.jpg" alt="Formal Shoe">
+        </div>
+        <span class="plp-brand">Tyro Collective</span>
+        <h3>Formal Shoe</h3>
+        <p class="plp-sub">Formal</p>
+        <p class="plp-price">P829.00</p>
+        <p class="plp-color-note">Available by Order in different colours</p>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER (identical on every page) ================= -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- LEFT SECTION -->
+        <div class="footer-about">
+
+            <h2>ZMCOLLECTIVE</h2>
+
+            <p>
+                Step into comfort and style with our premium collection of sneakers,
+                running shoes, and casual footwear designed for every lifestyle.
+            </p>
+
+            <div class="socials">
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+
+            <button onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                BACK TO TOP ↑
+            </button>
+
+        </div>
+
+        <!-- SITE MAP -->
+        <div class="footer-links">
+            <h3>Shop</h3>
+            <a href="men.html">Men</a>
+            <a href="women.html">Women</a>
+            <a href="kids.html">Kids</a>
+            <a href="new.html">New Arrivals</a>
+        </div>
+
+        <!-- SUPPORT -->
+        <div class="footer-links">
+            <h3>Support</h3>
+            <a href="contact.html">Contact Us</a>
+            <a href="#">FAQs</a>
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+        </div>
+
+        <!-- LEGAL -->
+        <div class="footer-links">
+            <h3>Legal</h3>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Refund Policy</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 ZMCOLLECTIVE. All Rights Reserved.</p>
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

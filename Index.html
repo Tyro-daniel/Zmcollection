@@ -3,94 +3,445 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PC Shop</title>
+<meta name="description" content="Shop sneakers, sportswear and everyday essentials at ZM Collective.">
+<meta name="theme-color" content="#000000">
+<title>ZM Collective</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="site-chrome.js" defer></script>
 </head>
-<body>
+<body id="top">
 
 <header class="site-header">
 
-  <!-- Utility bar -->
-  <div class="utility-bar">
-    <div class="utility-left">
-      <span class="utility-brand">PC&nbsp;Shop</span>
-    </div>
-    <div class="utility-right">
-      <a href="#">Find a Store</a>
-      <span class="divider">|</span>
-      <a href="#">Help</a>
-      <span class="divider">|</span>
-      <a href="#">Join Us</a>
-      <span class="divider">|</span>
-      <a href="#">Sign In</a>
-    </div>
-  </div>
-
-  <!-- Main nav -->
+  <!-- Top row: logo / icon nav / hamburger -->
   <div class="main-bar">
-    <a href="#" class="logo">
-      <span class="logo-mark">PC</span>
+
+    <a href="Index.html" class="logo" aria-label="ZM Collective home">
+      <span class="brand-logo-monogram">ZM</span>
+      <span class="brand-logo-name">ZM COLLECTIVE</span>
+      <span class="brand-logo-tagline">style in motion</span>
     </a>
 
-    <nav class="main-nav">
-      <a href="#">New</a>
-      <a href="#">Treanding</a>
-      <a href="#">Best Brands</a>
-      <a href="#">Accessories</a>
-      <a href="#">Collections</a>
+    <nav class="icon-nav" id="mainNav">
+      <a href="Index.html" class="icon-nav-item active">
+        <img src="shoe-shop.PNG" alt="Home" class="nav-icon-img">
+        <span>Home</span>
+      </a>
+
+      <a href="Men.html" class="icon-nav-item">
+        <img src="shoe-shop.png" alt="" class="nav-icon-img">
+        <span>Men</span>
+      </a>
+
+      <a href="Women.html" class="icon-nav-item">
+        <img src="shoe-shop.png" alt="" class="nav-icon-img">
+        <span>Women</span>
+      </a>
     </nav>
 
-    <div class="main-right">
-      <div class="search-bar">
-        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- ================= SEGMENTED SEARCH BAR ================= -->
+  <div class="search-row">
+    <form class="search-segmented" id="siteSearchForm" role="search">
+
+      <div class="search-field">
+        <label class="field-label" for="homeSearchInput">Search</label>
+        <input class="field-value" id="homeSearchInput" type="search" placeholder="What are you looking for?" autocomplete="off">
+      </div>
+
+      <span class="field-divider"></span>
+
+      <div class="search-field">
+        <label class="field-label" for="homeSearchCategory">Shop</label>
+        <select class="field-value" id="homeSearchCategory">
+          <option value="all">All collections</option>
+          <option value="men">Men</option>
+          <option value="women">Women</option>
+          <option value="footwear">Footwear</option>
+          <option value="accessories">Accessories</option>
+        </select>
+      </div>
+
+      <button class="search-submit" id="searchSubmitBtn" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="2.4">
           <circle cx="11" cy="11" r="7"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input type="text" placeholder="Search" id="searchInput">
-      </div>
-
-      <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
-          <path d="M12 21s-7.5-4.6-10-9C0.3 8.4 1.6 4.5 5.4 3.6 7.9 3 10.4 4.1 12 6.3 13.6 4.1 16.1 3 18.6 3.6c3.8 0.9 5.1 4.8 3.4 8.4-2.5 4.4-10 9-10 9z"/>
-        </svg>
       </button>
 
-      <button class="icon-btn" id="bagBtn" aria-label="Bag">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
-          <path d="M6 7h12l-1 13H7L6 7z"/>
-          <path d="M9 7V5.5a3 3 0 0 1 6 0V7"/>
-        </svg>
-      </button>
-    </div>
+    </form>
+    <p class="search-feedback" id="searchFeedback" aria-live="polite"></p>
   </div>
+
+  <!-- ================= SHOP CATEGORY SIDEBAR (opens via hamburger) ================= -->
+  <nav class="shop-nav" id="shopNav">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">&times;</button>
+    <a href="#new-arrivals">New arrivals</a>
+    <a href="Footwear.html">Footwear</a>
+    <a href="Men.html">Men</a>
+    <a href="Women.html">Women</a>
+    <a href="Accessories.html">Accessories</a>
+  </nav>
+
+  <div class="nav-overlay" id="navOverlay"></div>
 
 </header>
-<section class="sale-banner">
-  <img src="PC.jpg" alt="PC SHOP end of season sale" class="banner-img">
+<section class="fashion-hero">
+  <div class="fh-track" id="fhTrack">
 
-  <div class="banner-overlay"></div>
+    <div class="fh-slide">
+      <div class="fh-image">
+        <img src="Hip.png" alt="Black and red sneakers">
+      </div>
+      <div class="fh-text">
+        <h2><a href="Footwear.html">Latest Sneaker Collection</a></h2>
+        <p>Footwear | New Arrivals</p>
+      </div>
+    </div>
 
-  <div class="banner-content">
-    <h1>END OF SEASON SALE</h1>
-    <p>Shop your end-of-season favourites.<br>Up to 50% off. Ts &amp; Cs apply.</p>
+    <div class="fh-slide">
+      <div class="fh-image">
+        <img src="Hipp.jpeg" alt="White and tan sneakers">
+      </div>
+      <div class="fh-text">
+        <h2><a href="Footwear.html">Move With Purpose</a></h2>
+        <p>Sneakers | Performance</p>
+      </div>
+    </div>
 
-    <div class="cta-group">
-      <a href="#" class="cta-btn">
-        SHOP DESKTOPS <span class="arrow">→</span>
-      </a>
-      <a href="#" class="cta-btn">
-        SHOP LAPTOPS <span class="arrow">→</span>
-      </a>
-      <a href="#" class="cta-btn">
-        SHOP OTHERS <span class="arrow">→</span>
-      </a>
+    <div class="fh-slide">
+      <div class="fh-image">
+        <img src="Hiipp.avif" alt="Featured sneakers">
+      </div>
+      <div class="fh-text">
+        <h2><a href="#new-arrivals">Fresh Finds for Everyday</a></h2>
+        <p>Men | Streetwear</p>
+      </div>
     </div>
   </div>
+
+  <div class="fh-dots" id="fhDots" role="group" aria-label="Choose a featured collection">
+    <button class="fh-dot active" type="button" aria-label="Show slide 1 of 3" aria-pressed="true"></button>
+    <button class="fh-dot" type="button" aria-label="Show slide 2 of 3" aria-pressed="false"></button>
+    <button class="fh-dot" type="button" aria-label="Show slide 3 of 3" aria-pressed="false"></button>
+  </div>
+
+  <div class="fh-accent"></div>
 </section>
+
+<section class="featured-shoes">
+    <div class="shoe-card">
+        <img src="Crocs.webp" alt="Running Shoes">
+
+        <div class="shoe-content">
+            <span>New Collection</span>
+            <h2>Performance Running Shoes</h2>
+            <a href="Footwear.html" class="btn">Shop footwear</a>
+        </div>
+    </div>
+
+    <div class="shoe-card">
+        <img src="Air.jpg" alt="Sneakers">
+
+        <div class="shoe-content">
+            <span>Trending Style</span>
+            <h2>Streetwear Sneakers</h2>
+            <a href="Men.html" class="btn">Explore styles</a>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SHOP BY CATEGORY ================= -->
+<section class="category-section" id="shop-by-category">
+
+  <div class="section-title">
+    <h2>Shop By Category</h2>
+  </div>
+
+  <div class="category-grid">
+
+    <a href="Men.html" class="category-card" data-category="men">
+      <div class="category-image-wrap">
+        <img src="AIR+FORCE+1+'07.avif" alt="Men's Collection">
+      </div>
+      <div class="category-label-bar">
+        <span class="category-label">Men's Collection</span>
+        <div class="shop-bar"><span>SHOP</span></div>
+      </div>
+    </a>
+
+    <a href="Women.html" class="category-card" data-category="women">
+      <div class="category-image-wrap">
+        <img src="black.jpg" alt="Women's Collection">
+      </div>
+      <div class="category-label-bar">
+        <span class="category-label">Women's Collection</span>
+        <div class="shop-bar"><span>SHOP</span></div>
+      </div>
+    </a>
+
+    <a href="#new-arrivals" class="category-card" data-category="new">
+      <div class="category-image-wrap">
+        <img src="P-600.webp" alt="New Arrivals">
+      </div>
+      <div class="category-label-bar">
+        <span class="category-label">New Arrivals</span>
+        <div class="shop-bar"><span>SHOP</span></div>
+      </div>
+    </a>
+
+    <a href="Footwear.html" class="category-card" data-category="footwear">
+      <div class="category-image-wrap">
+        <img src="force.jpg" alt="Best Sellers">
+      </div>
+      <div class="category-label-bar">
+        <span class="category-label">Footwear</span>
+        <div class="shop-bar"><span>SHOP</span></div>
+      </div>
+    </a>
+
+    <a href="Accessories.html" class="category-card" data-category="accessories">
+      <div class="category-image-wrap">
+        <img src="glass.webp" alt="Accessories collection">
+      </div>
+      <div class="category-label-bar">
+        <span class="category-label">Accessories</span>
+        <div class="shop-bar"><span>SHOP</span></div>
+      </div>
+    </a>
+
+  </div>
+
+</section>
+ 
+<!-- ================= NEW ARRIVALS ================= -->
+<section class="arrivals-section" id="new-arrivals">
+ 
+  <div class="arrivals-header">
+    <h2>New Arrivals</h2>
+    <a href="Footwear.html" class="view-all">View all</a>
+  </div>
+ 
+  <div class="product-grid">
+ 
+    <a class="product-card" href="Jersey.html?product=argentina" data-category="men">
+      <span class="product-badge">New</span>
+      <img src="Messii.jpg" alt="Argentina football jersey">
+      <h3>Argentina Football Jersey</h3>
+      <p class="price">P899.00</p>
+      <div class="swatches">
+        <span class="swatch swatch-black"></span>
+        <span class="swatch swatch-white"></span>
+        <span class="swatch swatch-gray"></span>
+      </div>
+    </a>
+ 
+    <a class="product-card" href="Jersey.html?product=spain" data-category="men">
+      <span class="product-badge">New</span>
+      <img src="spain.jpg" alt="Spain football jersey">
+      <h3>Spain Football Jersey</h3>
+      <p class="price">P799.00</p>
+      <div class="swatches">
+        <span class="swatch swatch-sand"></span>
+        <span class="swatch swatch-cream"></span>
+        <span class="swatch swatch-black"></span>
+      </div>
+    </a>
+ 
+    <a class="product-card" href="Jersey.html?product=france" data-category="men">
+      <span class="product-badge">New</span>
+      <img src="olise.avif" alt="France football jersey">
+      <h3>France Football Jersey</h3>
+      <p class="price">P999.00</p>
+      <div class="swatches">
+        <span class="swatch swatch-black"></span>
+        <span class="swatch swatch-olive"></span>
+        <span class="swatch swatch-gray"></span>
+      </div>
+    </a>
+ 
+    <a class="product-card" href="Menshirt.html?product=michigan" data-category="men">
+      <span class="product-badge">New</span>
+      <img src="Mm.avif" alt="Michigan Victory T-shirt">
+      <h3>Michigan Victory T-Shirt</h3>
+      <p class="price">P699.00</p>
+      <div class="swatches">
+        <span class="swatch swatch-white"></span>
+        <span class="swatch swatch-black"></span>
+        <span class="swatch swatch-pink"></span>
+      </div>
+    </a>
+ 
+    <a class="product-card" href="Menshoe.html" data-category="footwear">
+      <span class="product-badge">New</span>
+      <img src="Airforce1.avif" alt="Air Force 1 '07 sneakers">
+      <h3>Air Force 1 &rsquo;07</h3>
+      <p class="price">P1049.00</p>
+      <div class="swatches">
+        <span class="swatch swatch-black"></span>
+        <span class="swatch swatch-sand"></span>
+      </div>
+    </a>
+ 
+  </div>
+ 
+</section>
+
+<!-- ================= WORLD SPLIT BANNER ================= -->
+<section class="split-banner">
+
+  <div class="split-panel split-panel-left">
+    <img src="Nike.webp" alt="Men's Collection">
+    <div class="split-overlay">
+      <span class="split-tag">NEW COLLECTION</span>
+      <h2>MEN'S</h2>
+      <p class="split-sub">Support your style.</p>
+
+      <div class="split-buttons">
+        <a href="Men.html" class="split-btn">
+          SHOP NOW <span class="arrow">&rarr;</span>
+        </a>
+        <a href="Footwear.html" class="split-btn">
+          SHOP SNEAKERS <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="split-panel">
+    <img src="force.jpg" alt="Streetwear Collection">
+    <div class="split-overlay">
+      <span class="split-tag">FEATURED</span>
+      <h2>STREETWEAR</h2>
+    </div>
+  </div>
+
+  <a class="split-panel split-panel-link" href="Women.html">
+    <img src="Tiger.jpg" alt="Women's Collection">
+    <div class="split-overlay">
+      <span class="split-tag">NEW COLLECTION</span>
+      <h2>WOMEN'S</h2>
+    </div>
+  </a>
+
+</section>
+ 
+
+<!-- ================= CAROUSEL SECTION ================= -->
+<section class="shoe-carousel">
+
+    <div class="carousel">
+
+        <div class="slides fade active">
+            <img src="Hip.png" alt="Black and red sneakers">
+            <div class="caption">
+                <h2>Latest Sneaker Collection</h2>
+                <p>Discover premium comfort and style.</p>
+                <a href="Footwear.html" class="carousel-btn">Shop footwear</a>
+            </div>
+        </div>
+
+        <div class="slides fade">
+            <img src="Hipp.jpeg" alt="White and tan sneakers">
+            <div class="caption">
+                <h2>Performance Running Shoes</h2>
+                <p>Engineered for speed and comfort.</p>
+                <a href="Men.html" class="carousel-btn">Explore men&rsquo;s</a>
+            </div>
+        </div>
+
+        <div class="slides fade">
+            <img src="Hiipp.avif" alt="Featured sneakers">
+            <div class="caption">
+                <h2>Streetwear Collection</h2>
+                <p>Upgrade your everyday style.</p>
+                <a href="Footwear.html" class="carousel-btn">View footwear</a>
+            </div>
+        </div>
+
+        <div class="slides fade">
+            <img src="Hip.png" alt="Black and red sneakers">
+            <div class="caption">
+                        <h2>Everyday Essentials</h2>
+                        <p>Find your next favorite pair and make it your own.</p>
+                <a href="Footwear.html" class="carousel-btn">Shop footwear</a>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+
+        <!-- Dots -->
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer class="footer" id="contact">
+
+    <div class="footer-container">
+
+        <!-- LEFT SECTION -->
+        <div class="footer-about">
+
+            <h2>ZMCOLLECTIVE</h2>
+
+            <p>
+                Step into comfort and style with our premium collection of sneakers,
+                running shoes, and casual footwear designed for every lifestyle.
+            </p>
+
+            <button onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                BACK TO TOP ↑
+            </button>
+
+        </div>
+
+        <!-- SITE MAP -->
+        <div class="footer-links">
+            <h3>Shop</h3>
+            <a href="Men.html">Men</a>
+            <a href="Women.html">Women</a>
+            <a href="Footwear.html">Footwear</a>
+            <a href="#new-arrivals">New arrivals</a>
+        </div>
+
+        <!-- SUPPORT -->
+        <div class="footer-links">
+            <h3>Support</h3>
+            <a href="#contact">Contact information</a>
+            <span>Shipping &amp; returns assistance</span>
+        </div>
+
+        <!-- LEGAL -->
+        <div class="footer-links">
+            <h3>About ZM</h3>
+            <span>Sportswear, sneakers and accessories for everyday movement and personal style.</span>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 ZMCOLLECTIVE. All Rights Reserved.</p>
+    </div>
+
+</footer>
 
 <script src="script.js"></script>
 </body>
 </html>
-
-
-

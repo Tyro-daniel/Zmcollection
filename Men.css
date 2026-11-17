@@ -1,0 +1,316 @@
+/* ================= PRODUCT LISTING PAGE (PLP) =================
+   Men's page specific styles only.
+   Header, footer, nav, search bar etc. still come from style.css —
+   make sure men.html links BOTH stylesheets, style.css first:
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="men.css">
+================================================================= */
+.plp{
+  padding:40px 4% 80px;
+  font-family:'Inter',Arial,sans-serif;
+  font-size:17px;
+  font-weight:500;
+}
+.plp-brand{
+  display:block;
+  font-family:'Inter',Arial,sans-serif;
+  font-size:12px;
+  font-weight:700;
+  color:var(--gray-text);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  margin-bottom:4px;
+  line-height:1;
+}
+
+.plp-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:30px;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--border);
+}
+.plp-header h1{
+  font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+  font-size:40px;
+  font-weight:900;
+  letter-spacing:-.02em;
+}
+.plp-controls{
+  display:flex;
+  gap:24px;
+}
+.plp-control-btn{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:none;
+  border:none;
+  font-size:15px;
+  font-weight:600;
+  color:var(--ink);
+  cursor:pointer;
+}
+.plp-sort-control{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  font-weight:600;
+}
+.plp-sort{
+  min-width:160px;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:#fff;
+  color:var(--ink);
+  cursor:pointer;
+}
+.plp-layout.filters-hidden .plp-sidebar{
+  display:none;
+}
+.plp-layout.filters-hidden .plp-grid{
+  width:100%;
+}
+.plp-category-list a.active{
+  font-weight:700;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+.plp-control-btn:hover{
+  color:var(--gray-text);
+}
+.plp-layout{
+  display:flex;
+  gap:40px;
+  align-items:flex-start;
+}
+/* ---------- Sidebar ---------- */
+.plp-sidebar{
+  width:220px;
+  flex-shrink:0;
+  position:sticky;
+  top:20px;
+}
+.plp-category-list{
+  list-style:none;
+  margin-bottom:20px;
+}
+.plp-category-list li a{
+  display:block;
+  padding:10px 0;
+  font-size:16px;
+  font-weight:500;
+  color:var(--ink);
+}
+.plp-category-list li a:hover{
+  color:var(--gray-text);
+  text-decoration:underline;
+}
+.plp-filter{
+  border-top:1px solid var(--border);
+  padding:14px 0;
+}
+.plp-filter summary{
+  cursor:pointer;
+  font-size:15px;
+  font-weight:700;
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.plp-filter summary::-webkit-details-marker{
+  display:none;
+}
+.plp-filter summary::after{
+  content:'\25BE';
+  font-size:12px;
+  color:var(--gray-text);
+  transition:transform 0.2s ease;
+}
+.plp-filter[open] summary::after{
+  transform:rotate(180deg);
+}
+.filter-count{
+  font-weight:500;
+  color:var(--gray-text);
+}
+.plp-filter-body{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:14px;
+}
+.plp-filter-body label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:15px;
+  font-weight:500;
+  color:var(--ink);
+  cursor:pointer;
+}
+/* ---------- Product grid ---------- */
+.plp-grid{
+  flex:1;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:32px 24px;
+  grid-auto-flow: row dense;   /* lets later cards fill gaps instead of pushing forward */
+}
+
+.plp-browse-more{
+  grid-column: 3;              /* forces this into the 3rd column — same column as France */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:350px;
+}
+.plp-card{
+  display:block;
+  color:inherit;
+}
+.plp-card-image {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+.plp-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition:transform .35s ease;
+}
+.plp-card:hover .plp-card-image img{
+  transform:scale(1.06);
+}
+.plp-tag{
+  display:block;
+  font-size:13px;
+  font-weight:800;
+  color:#d9341c;
+  margin-bottom:4px;
+}
+.plp-card h3{
+  font-family:'Poppins', sans-serif;
+  font-size:15px;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:2px;
+}
+.plp-sub{
+  font-size:14px;
+  font-weight:500;
+  color:var(--gray-text);
+  margin-bottom:6px;
+}
+.plp-price{
+  font-size:15px;
+  font-weight:700;
+}
+.plp-thumbs{
+  display:flex;
+  gap:6px;
+  margin-bottom:8px;
+}
+.plp-thumbs img{
+  width:32px;
+  height:32px;
+  object-fit:contain;
+  background:var(--gray-bg);
+  border:1px solid var(--border);
+  padding:2px;
+}
+.plp-control-btn{
+  font-family:'Inter',Arial,sans-serif;
+}
+.plp-filter input{
+  accent-color:#111;
+}
+.plp-card h3{
+  font-family:'Inter',Arial,sans-serif;
+}
+@media(max-width:900px){
+  .plp-layout{
+    flex-direction:column;
+  }
+  .plp-sidebar{
+    width:100%;
+    position:static;
+  }
+  .plp-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+@media(max-width:520px){
+  .plp-grid{
+    grid-template-columns:1fr;
+  }
+  .plp-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+  }
+}
+.plp-sections{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:56px;
+}
+
+.plp-section-header{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  margin-bottom:24px;
+}
+
+.plp-section-header h2{
+  font-size:20px;
+  font-weight:700;
+  color:var(--ink, #111);
+}
+
+.plp-browse-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:0.4px;
+  text-transform:uppercase;
+  color:var(--ink, #111);
+}
+
+.plp-browse-link:hover{
+  text-decoration:underline;
+}
+
+.plp-browse-link .browse-arrow{
+  font-size:12px;
+}
+
+.plp-section-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:32px 24px;
+}
+
+@media(max-width:900px){
+  .plp-section-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+
+@media(max-width:520px){
+  .plp-section-grid{
+    grid-template-columns:1fr;
+  }
+}

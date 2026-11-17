@@ -1,0 +1,995 @@
+/* ================= PRODUCT DETAIL PAGE (PDP) =================
+   Single product view — reached by clicking a product image on
+   men.html / women.html.
+   Header, footer, nav, search bar still come from style.css —
+   make sure jersey.html links BOTH stylesheets, style.css first:
+
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="jersey.css">
+================================================================= */
+
+.pdp{
+  padding:40px 4% 80px;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size:17px;
+}
+
+.pdp-layout{
+  display:flex;
+  gap:48px;
+  align-items:flex-start;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+/* ---------- Gallery (left side) ---------- */
+.pdp-gallery{
+  flex:1;
+  max-width:600px;
+}
+
+.pdp-main-image{
+  position:relative;
+  width:100%;
+  height:520px;
+  background:#ffffff;
+  overflow:hidden;
+}
+
+.pdp-main-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+
+.pdp-badge{
+  position:absolute;
+  top:16px;
+  left:16px;
+  background:#fff;
+  border-radius:20px;
+  padding:8px 16px;
+  font-size:13px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  z-index:2;
+}
+
+.pdp-nav-arrow{
+  position:absolute;
+  bottom:16px;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  border:none;
+  background:#fff;
+  cursor:pointer;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:2;
+  transition:background 0.2s;
+}
+
+.pdp-nav-arrow:hover{
+  background:var(--gray-bg, #eee);
+}
+
+.pdp-nav-prev{ right:60px; }
+.pdp-nav-next{ right:16px; }
+
+.pdp-thumbs{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+  flex-wrap:wrap;
+}
+
+.pdp-thumb{
+  width:70px;
+  height:70px;
+  object-fit:cover;
+  background:#ffffff;
+  border:2px solid transparent;
+  cursor:pointer;
+  opacity:0.75;
+  transition:opacity 0.2s, border-color 0.2s;
+}
+
+.pdp-thumb:hover{
+  opacity:1;
+}
+
+.pdp-thumb.active{
+  border-color:var(--ink, #111);
+  opacity:1;
+}
+
+/* ---------- Info (right side) ---------- */
+.pdp-info{
+  flex:1;
+  max-width:480px;
+  padding-top:8px;
+}
+
+.pdp-title{
+  font-family:'Poppins', sans-serif;
+  font-size:28px;
+  font-weight:700;
+  color:var(--ink, #111);
+  margin-bottom:4px;
+}
+
+.pdp-sub{
+  font-size:16px;
+  color:var(--gray-text, #777);
+  margin-bottom:16px;
+}
+
+.pdp-price-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:32px;
+}
+
+.pdp-price{
+  font-size:20px;
+  font-weight:700;
+  color:var(--ink, #111);
+}
+
+.pdp-price-old{
+  font-size:16px;
+  color:var(--gray-text, #999);
+  text-decoration:line-through;
+}
+
+.pdp-discount{
+  font-size:15px;
+  font-weight:600;
+  color:#1a7d3a;
+}
+
+.pdp-size-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:14px;
+}
+
+.pdp-size-header h3{
+  font-size:16px;
+  font-weight:700;
+}
+
+.pdp-size-guide{
+  background:none;
+  border:none;
+  font-size:14px;
+  font-weight:500;
+  color:var(--ink, #111);
+  cursor:pointer;
+  text-decoration:underline;
+}
+
+.pdp-sizes{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
+  margin-bottom:28px;
+}
+
+.pdp-size{
+  padding:14px 0;
+  background:#fff;
+  border:1px solid var(--border, #ddd);
+  font-size:15px;
+  font-weight:500;
+  cursor:pointer;
+  transition:border-color 0.2s, background 0.2s;
+}
+
+.pdp-size:hover:not(:disabled){
+  border-color:var(--ink, #111);
+}
+
+.pdp-size.active{
+  border-color:var(--ink, #111);
+  background:var(--ink, #111);
+  color:#fff;
+}
+
+.pdp-size:disabled{
+  color:var(--gray-text, #bbb);
+  border-color:var(--border, #eee);
+  text-decoration:line-through;
+  cursor:not-allowed;
+  background:#ffffff;
+}
+
+.pdp-add-btn{
+  width:100%;
+  padding:16px 0;
+  background:var(--ink, #111);
+  color:#fff;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  margin-bottom:12px;
+  transition:opacity 0.2s;
+}
+
+.pdp-add-btn:hover{
+  opacity:0.85;
+}
+
+.pdp-fav-btn{
+  width:100%;
+  padding:16px 0;
+  background:#fff;
+  color:var(--ink, #111);
+  border:1px solid var(--border, #ddd);
+  border-radius:30px;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  margin-bottom:32px;
+  transition:border-color 0.2s;
+}
+
+.pdp-fav-btn:hover,
+.pdp-fav-btn.active{
+  border-color:var(--ink, #111);
+}
+
+.pdp-description{
+  font-size:15px;
+  line-height:1.6;
+  color:var(--ink, #333);
+}
+
+/* ---------- Shared listing-to-product detail page ---------- */
+.zm-product-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:16px clamp(20px, 5vw, 72px);
+  border-bottom:1px solid var(--border, #e5e5e5);
+  background:#fff;
+}
+
+.zm-product-header .logo{
+  flex:0 0 auto;
+}
+
+.zm-product-back,
+.zm-product-bag{
+  color:var(--ink, #111);
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.zm-product-bag{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.zm-product-back:hover,
+.zm-product-bag:hover{
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+
+.zm-product-page .pdp-main-img{
+  padding:20px;
+  object-fit:contain;
+  background:#f3f3f0;
+}
+
+.zm-product-eyebrow{
+  margin-bottom:8px;
+  color:var(--gray-text, #777);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+}
+
+.zm-product-option-note{
+  color:var(--gray-text, #777);
+  font-size:13px;
+}
+
+.zm-product-page .pdp-size{
+  min-height:52px;
+}
+
+.zm-product-page .pdp-description{
+  margin-top:18px;
+}
+
+.zm-product-error{
+  margin:-14px 0 14px;
+  color:#a32121;
+  font-size:14px;
+}
+
+.zm-product-missing{
+  width:min(100% - 32px, 720px);
+  margin:40px auto;
+  padding:32px;
+  border:1px solid var(--border, #e5e5e5);
+  background:#fff;
+}
+
+.zm-product-missing h1{
+  margin-bottom:8px;
+  font-size:24px;
+}
+
+.zm-product-missing a{
+  display:inline-block;
+  margin-top:16px;
+  color:var(--ink, #111);
+  font-weight:700;
+}
+
+.zm-product-page .ymal{
+  padding-top:36px;
+}
+
+.zm-product-page .ymal-card{
+  text-decoration:none;
+}
+
+.zm-product-page .ymal-card-image{
+  aspect-ratio:1 / 1;
+  height:auto;
+  border-radius:4px;
+  background:#f3f3f0;
+}
+
+.zm-product-page .ymal-card-image img{
+  padding:12px;
+  object-fit:contain;
+}
+
+.zm-product-page .ymal-card .plp-brand{
+  margin:0 0 7px;
+  color:#777;
+  font-family:inherit;
+  font-size:10px;
+  letter-spacing:1.1px;
+  line-height:1.2;
+  text-transform:uppercase;
+  -webkit-text-stroke:0;
+}
+
+.zm-product-page .ymal-card h3{
+  line-height:1.35;
+}
+
+.zm-product-page .footer-bottom{
+  margin-top:40px;
+  border-top:1px solid var(--border, #e5e5e5);
+}
+
+/* ---------- Browse More Football Jersey ---------- */
+.plp-brand{
+  display:block;
+  font-family:'Alex Brush', cursive;
+  font-size:24px;
+  font-weight:700;
+  color:#B87333;   /* copper */
+  margin-bottom:4px;
+  line-height:1;
+  -webkit-text-stroke:0.4px #B87333;
+}
+
+.browse-jersey{
+  max-width:1440px;
+  margin:0 auto;
+  padding:64px clamp(20px, 5vw, 72px) 48px;
+  border-top:1px solid var(--border, #e5e5e5);
+}
+
+.browse-jersey-header{
+  margin-bottom:28px;
+}
+
+.browse-jersey-eyebrow{
+  margin:0 0 8px;
+  color:var(--gray-text, #777);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+}
+
+.browse-jersey-header h2{
+  font-family:'Poppins', sans-serif;
+  font-size:clamp(26px, 3vw, 38px);
+  font-weight:700;
+  color:var(--ink, #111);
+  line-height:1.12;
+  letter-spacing:-0.8px;
+}
+
+.browse-jersey-intro{
+  margin-top:9px;
+  color:var(--gray-text, #777);
+  font-size:15px;
+}
+
+.browse-jersey-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:16px;
+}
+
+.bj-card{
+  display:block;
+  color:inherit;
+  min-width:0;
+  padding:10px 10px 16px;
+  background:#fff;
+  border:1px solid #e9e9e6;
+  border-radius:6px;
+  text-decoration:none;
+  transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.bj-card:hover{
+  transform:translateY(-3px);
+  border-color:#d6d6d1;
+  box-shadow:0 12px 26px rgba(0,0,0,0.08);
+}
+
+.bj-card-image{
+  width:100%;
+  aspect-ratio:1 / 1.05;
+  background:#f3f3f0;
+  overflow:hidden;
+  margin-bottom:16px;
+  border-radius:3px;
+}
+
+.bj-card-image img{
+  width:100%;
+  height:100%;
+  padding:12px;
+  object-fit:contain;
+  object-position:center;
+  display:block;
+  transition:transform 0.3s ease;
+}
+
+.bj-card:hover .bj-card-image img{
+  transform:scale(1.035);
+}
+
+.bj-card .plp-brand{
+  margin:0 0 7px;
+  color:#777;
+  font-family:inherit;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1.1px;
+  line-height:1.2;
+  text-transform:uppercase;
+  -webkit-text-stroke:0;
+}
+
+.bj-card h3{
+  font-family:'Poppins', sans-serif;
+  font-size:clamp(13px, 1.1vw, 15px);
+  font-weight:700;
+  color:var(--ink, #111);
+  line-height:1.35;
+  margin-bottom:5px;
+}
+
+.bj-sub{
+  font-size:14px;
+  color:var(--gray-text, #777);
+  margin-bottom:9px;
+}
+
+.bj-price{
+  font-size:15px;
+  font-weight:700;
+  color:var(--ink, #111);
+}
+
+/* 4th container: Browse More Jersey link */
+.bj-browse-more{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  min-height:100%;
+  padding:24px;
+  background:#efefeb;
+  border-radius:6px;
+  color:var(--ink, #111);
+  text-decoration:none;
+  transition:background 0.2s ease, color 0.2s ease;
+}
+
+.bj-browse-more:hover{
+  background:#171717;
+  color:#fff;
+}
+
+.bj-browse-text{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:12px;
+  font-size:14px;
+  font-weight:700;
+  color:inherit;
+}
+
+.bj-browse-kicker{
+  font-size:10px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+
+.bj-browse-title{
+  font-family:'Poppins', sans-serif;
+  font-size:clamp(20px, 2vw, 28px);
+  line-height:1.15;
+  letter-spacing:-0.5px;
+  text-transform:uppercase;
+}
+
+.bj-browse-text .browse-arrow{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:40px;
+  height:40px;
+  margin-top:8px;
+  border:1px solid currentColor;
+  border-radius:50%;
+  font-size:16px;
+  flex-shrink:0;
+  color:inherit;
+  transition:transform 0.2s ease;
+}
+
+.bj-browse-more:hover .browse-arrow{
+  transform:translateX(4px);
+}
+
+.bj-card:focus-visible,
+.bj-browse-more:focus-visible{
+  outline:2px solid var(--ink, #111);
+  outline-offset:3px;
+}
+
+@media(max-width:900px){
+  .browse-jersey-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+
+  .bj-browse-more{
+    min-height:240px;
+  }
+}
+
+@media(max-width:520px){
+  .zm-product-header{
+    gap:12px;
+    padding:12px 16px;
+  }
+
+  .zm-product-header .logo{
+    transform:scale(0.86);
+    transform-origin:left center;
+    margin-right:-16px;
+  }
+
+  .zm-product-back,
+  .zm-product-bag{
+    font-size:12px;
+  }
+
+  .browse-jersey{
+    padding:42px 16px 32px;
+  }
+
+  .browse-jersey-header{
+    margin-bottom:20px;
+  }
+
+  .browse-jersey-grid{
+    gap:10px;
+  }
+
+  .bj-card{
+    padding:7px 7px 12px;
+  }
+
+  .bj-card-image{
+    margin-bottom:12px;
+    aspect-ratio:1 / 1;
+  }
+
+  .bj-card-image img{
+    padding:8px;
+  }
+
+  .bj-card h3{
+    font-size:13px;
+  }
+
+  .bj-sub{
+    font-size:12px;
+  }
+
+  .bj-price{
+    font-size:14px;
+  }
+
+  .bj-browse-more{
+    min-height:180px;
+    padding:16px;
+  }
+
+  .bj-browse-title{
+    font-size:19px;
+  }
+}
+
+/* ---------- You Might Also Like ---------- */
+.ymal{
+  max-width:1200px;
+  margin:0 auto;
+  padding:60px 4% 20px;
+}
+
+.ymal-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+.ymal-header h2{
+  font-family:'Poppins', sans-serif;
+  font-size:22px;
+  font-weight:700;
+  color:var(--ink, #111);
+}
+
+.ymal-arrows{
+  display:flex;
+  gap:10px;
+}
+
+.ymal-arrow{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:1px solid var(--border, #ddd);
+  background:#ffffff;
+  cursor:pointer;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background 0.2s;
+}
+
+.ymal-arrow:hover{
+  background:#f0f0f0;
+}
+
+/* Scroll track: shows 3 full cards + a peek of the 4th.
+   Adjust the 3 in calc() if you want a different count visible. */
+.ymal-track{
+  display:flex;
+  gap:24px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  -ms-overflow-style:none;
+  scrollbar-width:none;
+}
+
+.ymal-track::-webkit-scrollbar{
+  display:none;
+}
+
+.ymal-card{
+  flex:0 0 calc((100% - 48px) / 3.3);
+  scroll-snap-align:start;
+  display:block;
+  color:inherit;
+}
+
+.ymal-card-image{
+  width:100%;
+  height:280px;
+  background:#ffffff;
+  overflow:hidden;
+  margin-bottom:14px;
+}
+
+.ymal-card-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  transition:transform 0.3s ease;
+}
+
+.ymal-card:hover .ymal-card-image img{
+  transform:scale(1.06);
+}
+
+.ymal-card h3{
+  font-family:'Poppins', sans-serif;
+  font-size:15px;
+  font-weight:700;
+  color:var(--ink, #111);
+  margin-bottom:2px;
+}
+
+.ymal-sub{
+  font-size:14px;
+  color:var(--gray-text, #777);
+  margin-bottom:6px;
+}
+
+.ymal-price{
+  font-size:15px;
+  font-weight:700;
+}
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+  .pdp-layout{
+    flex-direction:column;
+  }
+  .pdp-gallery,
+  .pdp-info{
+    max-width:100%;
+  }
+  .pdp-main-image{
+    height:400px;
+  }
+  .ymal-card{
+    flex:0 0 calc((100% - 24px) / 2.3); /* ~2 cards + peek on tablet */
+  }
+}
+
+@media(max-width:520px){
+  .pdp{
+    padding:24px 4% 60px;
+  }
+  .pdp-main-image{
+    height:320px;
+  }
+  .pdp-thumb{
+    width:56px;
+    height:56px;
+  }
+  .pdp-sizes{
+    grid-template-columns:repeat(2, 1fr);
+  }
+  .ymal{
+    padding:40px 4% 20px;
+  }
+  .ymal-card{
+    flex:0 0 calc(100% - 40px); /* ~1 card + peek on mobile */
+  }
+  .ymal-card-image{
+    height:220px;
+  }
+
+  .zm-product-page .ymal-card-image{
+    height:auto;
+  }
+
+  .zm-product-page .pdp-main-img{
+    padding:10px;
+  }
+
+  .zm-product-missing{
+    padding:24px 20px;
+  }
+}
+/* ============================================================
+   ADD TO BAG MODAL
+   Append this to your existing jersey.css. Shared by every
+   product detail page that includes the modal markup
+   (Menshirt.html, and any others you add it to later).
+============================================================= */
+
+.bag-modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:2000;
+  padding:20px;
+}
+
+.bag-modal-overlay.open{
+  display:flex;
+}
+
+.bag-modal{
+  background:#fff;
+  width:100%;
+  max-width:820px;
+  max-height:90vh;
+  overflow-y:auto;
+  position:relative;
+  padding:40px;
+}
+
+.bag-modal-close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  width:40px;
+  height:40px;
+  border:1px solid var(--ink, #111);
+  background:none;
+  font-size:20px;
+  line-height:1;
+  cursor:pointer;
+}
+
+.bag-modal-close:hover{
+  background:var(--ink, #111);
+  color:#fff;
+}
+
+.bag-modal-title{
+  font-family:'Roboto Slab', serif;
+  font-size:24px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  margin-bottom:30px;
+  padding-right:60px;
+}
+
+.bag-modal-body{
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+}
+
+.bag-modal-product{
+  display:flex;
+  gap:20px;
+  flex:1;
+  min-width:240px;
+}
+
+.bag-modal-image{
+  width:120px;
+  height:120px;
+  background:var(--gray-bg, #f5f5f5);
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.bag-modal-image img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+
+.bag-modal-details h3{
+  font-size:16px;
+  margin-bottom:6px;
+}
+
+.bag-modal-price{
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.bag-modal-details p{
+  font-size:14px;
+  margin-bottom:4px;
+  color:#333;
+}
+
+.bag-modal-summary{
+  flex:1;
+  min-width:240px;
+  border-left:1px solid var(--border, #e5e5e5);
+  padding-left:40px;
+}
+
+.bag-modal-summary h3{
+  font-size:16px;
+  margin-bottom:12px;
+}
+
+.bag-modal-line{
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+  margin-bottom:8px;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--border, #e5e5e5);
+}
+
+.bag-modal-total{
+  font-weight:700;
+  font-size:16px;
+  border-bottom:none;
+}
+
+.bag-modal-view-btn{
+  display:block;
+  text-align:center;
+  background:var(--ink, #111);
+  color:#fff;
+  padding:14px;
+  margin-top:20px;
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  text-decoration:none;
+}
+
+.bag-modal-view-btn:hover{
+  opacity:0.85;
+}
+
+.bag-modal-continue{
+  display:block;
+  width:100%;
+  text-align:center;
+  background:none;
+  border:1px solid var(--ink, #111);
+  padding:14px;
+  margin-top:10px;
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+
+.bag-modal-continue:hover{
+  background:var(--gray-bg, #f5f5f5);
+}
+
+@media(max-width:700px){
+  .bag-modal{ padding:30px 24px; }
+  .bag-modal-body{ flex-direction:column; }
+  .bag-modal-summary{
+    border-left:none;
+    padding-left:0;
+    border-top:1px solid var(--border, #e5e5e5);
+    padding-top:20px;
+  }
+}

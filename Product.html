@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product | ZM Collective</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="jersey.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="site-chrome.js" defer></script>
+</head>
+<body class="zm-product-page">
+  <header class="zm-product-header">
+    <a href="Index.html" class="logo">
+      <span class="brand-logo-monogram">ZM</span>
+      <span class="brand-logo-name">ZM COLLECTIVE</span>
+      <span class="brand-logo-tagline">style in motion</span>
+    </a>
+    <a class="zm-product-back" id="productBackLink" href="Index.html">Continue shopping</a>
+    <a class="zm-product-bag" href="bag.html">Your bag <span aria-hidden="true">&#8594;</span></a>
+  </header>
+
+  <main class="pdp" id="productPage">
+    <div class="pdp-layout">
+      <div class="pdp-gallery">
+        <div class="pdp-main-image">
+          <span class="pdp-badge">&#9733; ZM Collective</span>
+          <img id="pdpMainImg" src="" alt="" class="pdp-main-img">
+        </div>
+        <div class="pdp-thumbs" id="pdpThumbs"></div>
+      </div>
+
+      <div class="pdp-info">
+        <p class="zm-product-eyebrow" id="productCollection"></p>
+        <h1 class="pdp-title" id="pdpTitle"></h1>
+        <p class="pdp-sub" id="pdpSub"></p>
+        <div class="pdp-price-row">
+          <span class="pdp-price" id="pdpPrice"></span>
+        </div>
+        <div class="pdp-size-header">
+          <h3 id="productOptionTitle">Select Size</h3>
+          <span class="zm-product-option-note" id="productOptionNote"></span>
+        </div>
+        <div class="pdp-sizes" id="productOptions" aria-label="Product options"></div>
+        <p class="zm-product-error" id="productError" role="alert" hidden></p>
+        <button class="pdp-add-btn" id="addProductToBag" type="button">Add to Bag</button>
+        <p class="pdp-description" id="pdpDescription"></p>
+      </div>
+    </div>
+  </main>
+
+  <section class="browse-jersey" id="browseSection">
+    <div class="browse-jersey-header">
+      <p class="browse-jersey-eyebrow">MORE TO EXPLORE</p>
+      <h2 id="browseRelatedTitle"></h2>
+      <p class="browse-jersey-intro" id="browseIntro"></p>
+    </div>
+    <div class="browse-jersey-grid" id="browseRelatedGrid"></div>
+  </section>
+
+  <section class="ymal" id="relatedSection">
+    <div class="ymal-header">
+      <div>
+        <p class="browse-jersey-eyebrow">PICKED FOR YOU</p>
+        <h2 id="relatedTitle">You Might Also Like</h2>
+      </div>
+      <div class="ymal-arrows">
+        <button class="ymal-arrow ymal-prev" type="button" aria-label="Scroll left">&#10094;</button>
+        <button class="ymal-arrow ymal-next" type="button" aria-label="Scroll right">&#10095;</button>
+      </div>
+    </div>
+    <div class="ymal-track" id="ymalTrack"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p>&copy; 2026 ZMCOLLECTIVE. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="scripts.js"></script>
+  <script src="product-page.js"></script>
+</body>
+</html>
