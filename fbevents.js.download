@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.min.css?v=1.2.27" />
+	<link rel="shortcut icon" type="image/ico" href="/static/icons/cisco.ico" />
+	
+	
+	<title>Site Blocked</title>
+	
+</head>
+<body>
+	<div class="container">
+		<div class="logo-area">
+			
+				<div class="center-align-logo">
+					<img id="logo" class="logo" src="https://d3aswa4nvo33j8.cloudfront.net/5/4/5443a9bd25f3ffe92e3ff08668c0b8402c10c323db714d7de6ca1a4c731cfa46e6fa5df2c53806a44b7192e4b48963175884c0eeaabed58c33f999cca1d3e7ce.png" alt="logo"></img>
+				</div>
+			
+		</div>
+		<div class="content-area">
+
+			<div class="blocked-page">
+				<div class="alert-area">
+					<i class="fa fa-exclamation-triangle alert-icon" aria-hidden="true"></i>
+					<span role="alert">
+						
+							This site is blocked due to content filtering.
+						
+					</span>
+				</div>
+				<div class="url-area">
+					
+					<input readonly class="url" id="inputUrl" type="text" value="connect.facebook.net" aria-label="destination" />
+					
+				</div>
+
+				
+			</div>
+			<div class="explanation-area">
+				
+					
+				
+
+				
+				
+				
+				<p class="custom-message" id="customMessage">
+					<p>&#34;This connect.facebook.net page has been blocked in accordance with the BURS Acceptable Use Policy. If you believe this action was taken in error, please contact servicedesk team at 9444.&#34;</p>
+
+				</p>
+				
+				
+
+				
+
+				
+				<div class="contact-form-area">
+    <p>
+        <i class="fa fa-angle-right" id="contactToggleCaret"></i>
+        <a href="#" id="contactFormToggle">Report an incorrect block</a>
+    </p>
+
+    <div class="contact-form-container" id="contactFormContainer">
+        <iframe class="contact-form" frameborder="0" scrolling="no" id="contactFormFrame" title="Contact Form"></iframe>
+    </div>
+</div>
+				
+
+				
+				
+					<div class="categorized">
+						<p>
+							This site was blocked due to the following categories:
+							<strong>
+								Social Networking
+							</strong>
+						</p>
+					</div>
+				
+				
+
+				
+
+				
+				
+				<div class="proxy-area">
+					
+						
+					
+
+					
+					
+						<div class="diagnostic-info-area" id="diagnosticInfoArea">
+							<i class="fa fa-angle-right" id="diagnosticToggleCaret"></i>
+							<a href="#" id="diagnosticToggle">Diagnostic Info</a>
+							<div class="diagnostic-info">
+								<dl>
+								
+									<dt>ACType</dt>
+									<dd>-</dd>
+								
+									<dt>Block Page ID</dt>
+									<dd>0</dd>
+								
+									<dt>Block Type</dt>
+									<dd>aup</dd>
+								
+									<dt>Bundle ID</dt>
+									<dd>14741117</dd>
+								
+									<dt>Domain Tagging</dt>
+									<dd>1800000000000000000021F0000000001000000</dd>
+								
+									<dt>Host</dt>
+									<dd>block.opendns.com</dd>
+								
+									<dt>IP Address</dt>
+									<dd>155.190.45.7</dd>
+								
+									<dt>Org ID</dt>
+									<dd>8181976</dd>
+								
+									<dt>Origin ID</dt>
+									<dd>1277617759</dd>
+								
+									<dt>Prefs</dt>
+									<dd>7888960</dd>
+								
+									<dt>Query</dt>
+									<dd>server=swg-nginx-proxy-https-874d6375fb2a.signginx.cpt1&amp;v=eyJhbGciOiAiSFM1MTIiLCAia2lkIjogIjE1NjM1NTk3OTYifQ.eyJidHlwZSI6ICIiLCAib3JnIjogODE4MTk3NiwgIm9pZCI6IDEyNzc2MTc3NTksICJiaWQiOiAxNDc0MTExNywgInByZiI6IDc4ODg5NjAsICJ0IjogIjE4MDAwMDAwMDAwMDAwMDAwMDAwMjFGMDAwMDAwMDAwMTAwMDAwMCIsICJiYyI6ICIxMDAwMDAwIiwgInVybCI6ICJodHRwczovL2Nvbm5lY3QuZmFjZWJvb2submV0L2VuX1VTL2ZiZXZlbnRzLmpzIiwgImZ0YyI6ICIiLCAiZm5hbWVzIjogIiIsICJicGlkIjogMCwgInJ1bGVpZCI6IDEwMjE2Mzd9.apv1Z9O-fG0JFNBltfmR-i8KO5KIwD5RK2eYPvr92Cpb1_3jEyl6HHj85yzkdRscBR0fgIIFNXlb0M7wyhkFyg</dd>
+								
+									<dt>Rule ID</dt>
+									<dd>1021637</dd>
+								
+									<dt>Server</dt>
+									<dd>swg-nginx-proxy-https-874d6375fb2a.signginx.cpt1</dd>
+								
+									<dt>Time</dt>
+									<dd>2026-06-24 08:03:45.459059432 &#43;0000 UTC m=&#43;2428598.737705196</dd>
+								
+								</dl>
+							</div>
+						</div>
+					
+					
+
+				</div>
+				
+				
+			</div>
+
+			<script type="text/javascript">
+				var cfOptions = {
+					baseUrl: "https://tools.opendns.com/contact-netadmin/",
+					enabled:  true ,
+					domain: "connect.facebook.net",
+					blockType: "aup",
+					oid:  1277617759 ,
+					oidhash: "3fe5a699d642d489219cc1097d2917f8b7e6e46c8d4e9286a8de6e55d9d23ba4",
+					org: "8181976",
+					bundleid:  14741117 ,
+					ruleid:  1021637 ,
+					blockpageid:  0 ,
+					bundleidhash: "aa0f9cba50224fa3e68ae469006b124d711114f9fb37b10ddb8a4abd4d0467aa",
+					preview:  false ,
+					requestId: "d8touod45q0l6dqeo78g",
+					bc: ["Social Networking"]
+				}
+			</script>
+			
+		</div>
+	</div>
+	<script type="text/javascript" src="/static/js/scripts.min.js?v=1.2.27"></script>
+</body>
+</html>
+

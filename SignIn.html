@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in or create your ZM Collective account.">
+  <title>Sign in | ZM Collective</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="site-chrome.js" defer></script>
+</head>
+<body class="zm-auth-page">
+  <header class="site-header"></header>
+
+  <main class="zm-auth-main">
+    <section class="auth-card" aria-labelledby="authTitle">
+      <p class="auth-eyebrow">ZM COLLECTIVE ACCOUNT</p>
+      <h1 id="authTitle">Sign in</h1>
+      <p class="auth-intro" id="authIntro">Sign in to your account or create one to keep your details together.</p>
+
+      <div class="auth-notice" id="firebaseSetupNotice" role="status" hidden>
+        Firebase is not connected yet. Add your Firebase Web App settings to
+        <code>firebase-config.js</code>, enable Email/Password in Firebase Authentication,
+        and add your local or deployed site domain to Firebase's authorized domains.
+        Run this site through localhost or HTTPS rather than opening the HTML file directly.
+        <a href="https://console.firebase.google.com/" target="_blank" rel="noopener noreferrer">Open Firebase Console</a>
+      </div>
+
+      <form class="auth-form" id="authForm">
+        <div class="auth-field">
+          <label for="authEmail">Email address</label>
+          <input id="authEmail" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="auth-field" id="passwordField">
+          <label for="authPassword">Password</label>
+          <input id="authPassword" name="password" type="password" autocomplete="current-password" minlength="6" required>
+        </div>
+        <button class="auth-submit" id="authSubmit" type="submit">Sign in</button>
+      </form>
+
+      <div class="auth-actions" id="authActions">
+        <button class="auth-link" id="toggleAuthMode" type="button">Create an account</button>
+        <button class="auth-link" id="resetPassword" type="button">Forgot password?</button>
+      </div>
+
+      <p class="auth-status" id="authStatus" role="status" aria-live="polite" hidden></p>
+
+      <section class="auth-account" id="signedInAccount" aria-label="Signed-in account" hidden>
+        <p id="accountEmail"></p>
+        <p class="auth-account-id" id="accountId"></p>
+        <button class="auth-signout" id="signOut" type="button">Sign out</button>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer"></footer>
+
+  <script src="script.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="signin.js"></script>
+</body>
+</html>
